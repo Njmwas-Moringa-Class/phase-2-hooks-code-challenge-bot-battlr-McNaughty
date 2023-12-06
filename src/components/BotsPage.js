@@ -12,7 +12,8 @@ function BotsPage() {
   //Fetch robots from the server
 
   function fetchBotData(){
-    return fetch(`http://localhost:3000/bots`)
+    // return fetch(`http://localhost:3000/bots`)
+    return fetch(`https://retoolapi.dev/GqurXn/bots`)
     .then((resp) => resp.json())
     .then((data) => {
       setBots(data);
@@ -51,11 +52,21 @@ function BotsPage() {
    }));
   }
 
+  function dischargeBot(bot){
+    // current state of bots
+    const currentBots = bots;
+
+    //new array creation after excluding the bot with the specified id
+    const updatedBots = currentBots.filter((robot) => robot.id !== bot.id);
+    //set state of bot to the updated array of remaining bots
+    setBots(updatedBots);
+  }
+
   return (
     <div>
-      <YourBotArmy bots={bots.filter((robots) => robots.army)} delistBot={delistBot} />
+      <YourBotArmy bots={bots.filter((robots) => robots.army)} delistBot={delistBot} dischargeBot={dischargeBot} />
       {/* // pass the bot data and its enlisting event to collection */}
-      <BotCollection bots={bots} enlistBot={enlistBot} />
+      <BotCollection bots={bots} enlistBot={enlistBot} dischargeBot={dischargeBot}/>
     </div>
   )
 }

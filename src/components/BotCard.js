@@ -9,7 +9,14 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, clickTrigger }) {
+function BotCard({ bot, clickTrigger,dischargeTrigger }) {
+
+  // Function to ensure no propagation of the click event while a bot is being discharged
+  // const handleDischargeClick = (event) => {
+  //   event.stopPropagation();
+  //   // {dischargeBot(bot)};
+  
+  // }
   return (
     <div className="ui column">
       <div
@@ -47,10 +54,11 @@ function BotCard({ bot, clickTrigger }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
-              >
+                // onClick={(event) => {event.stopPropagation();
+                //   dischargeTrigger(bot);
+                // }}
+                // onClick={dischargeTrigger(bot)}
+               >
                 x
               </button>
             </div>

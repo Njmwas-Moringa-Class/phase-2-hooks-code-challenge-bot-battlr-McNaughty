@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import BotCard from "./BotCard";
 // import botData from '../db.json';
 
-function BotCollection({bots, enlistBot}) {
+function BotCollection({bots, enlistBot, dischargeBot}) {
   
   // Your code here
   // map the individual bots based on the id. The individual bots are then 
@@ -13,6 +13,7 @@ function BotCollection({bots, enlistBot}) {
     key={bot.id}
     bot={bot} 
     clickTrigger = {enlistBot}
+    dischargeTrigger={dischargeBot}
     />
   )
  })

@@ -19,14 +19,31 @@ function BotsPage() {
     })
   }
 
+  // fetch for the bot everytime the page is loaded
   useEffect(() => {
     fetchBotData();
   }, []);
 
+  //click functions
+
+  function enlistBot(bot){
+    
+    setBots(bots.map((robot) => {
+      // go through the array to confirm the bot being enlisted based on the selected id
+      if (robot.id === bot.id) {
+       return {...robot, army:true}
+      }else {
+        return robot;
+      }
+
+    }));
+  }
+
   return (
     <div>
-      <YourBotArmy />
-      <BotCollection bots={bots} />
+      <YourBotArmy bots={bots.filter((robots) => robots.army)}/>
+      {/* // pass the bot data and its enlisting event to collection */}
+      <BotCollection bots={bots} enlistBot={enlistBot} />
     </div>
   )
 }

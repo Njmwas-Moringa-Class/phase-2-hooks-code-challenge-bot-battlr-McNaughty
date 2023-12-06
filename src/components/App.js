@@ -4,12 +4,6 @@ import BotsPage from "./BotsPage";
 import { useState } from "react";
 
 function App() {
-  // const [bots, setbots] = useState([botData]);
-
-  // useEffect(() =>{
-  //   setbots(botData);
-  //   // console.log(botData)
-  // }, []);
 
   return (
     <div className="App">

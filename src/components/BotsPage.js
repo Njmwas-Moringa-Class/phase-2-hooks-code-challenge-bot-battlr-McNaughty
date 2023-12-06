@@ -12,7 +12,7 @@ function BotsPage() {
 
   function fetchBotData() {
     return (
-      fetch(`http://localhost:3000/bots`)
+      fetch(`http://localhost:8002/bots`)
         // return fetch(`https://retoolapi.dev/GqurXn/bots`)
         .then((resp) => resp.json())
         .then((data) => {
@@ -74,7 +74,7 @@ function BotsPage() {
     setBots(updatedBots);
 
     // delete discharged bot from the main server as well
-    fetch(`http://localhost:3000/bots/${bot.id}`, {
+    fetch(`http://localhost:8002/bots/${bot.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

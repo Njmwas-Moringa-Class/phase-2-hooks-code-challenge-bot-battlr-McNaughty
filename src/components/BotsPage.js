@@ -39,9 +39,21 @@ function BotsPage() {
     }));
   }
 
+  function delistBot(bot){
+    // go through the array to confirm the bot being delisted based on the selected id
+    setBots(bots.map((robot) => {
+    if (robot.id === bot.id) {
+      return {...robot, army:false}
+     }else {
+       return robot;
+     }
+
+   }));
+  }
+
   return (
     <div>
-      <YourBotArmy bots={bots.filter((robots) => robots.army)}/>
+      <YourBotArmy bots={bots.filter((robots) => robots.army)} delistBot={delistBot} />
       {/* // pass the bot data and its enlisting event to collection */}
       <BotCollection bots={bots} enlistBot={enlistBot} />
     </div>

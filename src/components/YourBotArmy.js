@@ -1,18 +1,19 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function YourBotArmy({bots, delistBot,dischargeBot}) {
+function YourBotArmy({ bots, delistBot, dischargeBot }) {
   //your bot army code here...
   // Filtering through the bot items to recruit those who are not already in the army
   const armyRecruit = bots.map((bot) => {
     return (
-      <BotCard key={bot.id}
-      bot={bot}
-      clickTrigger={delistBot}
+      <BotCard
+        key={bot.id}
+        bot={bot}
+        clickTrigger={delistBot}
+        dischargeTrigger={dischargeBot}
       />
-    )
-  })
-
+    );
+  });
 
   return (
     <div className="ui segment inverted olive bot-army">
